@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const uri = 'mongodb://appuser:appuserpassword@127.0.0.1:27032/appdb?directConnection=true';
+const uri = 'mongodb://appuser:appuserpassword@127.0.0.1:27034/appdb?replicaSet=rs0';
 
 async function run() {
   const client = new MongoClient(uri, { useUnifiedTopology: true });

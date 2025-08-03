@@ -15,15 +15,8 @@ services:
     restart: unless-stopped
     command: mongod --port 27030 --replSet rs0
     network_mode: host
-    healthcheck:
-      test: echo "try { rs.status() } catch (err)" | mongosh --port 27030 -u mongo-0 -p mongo-0
-      interval: 5s
-      timeout: 15s
-      start_period: 15s
-      retries: 10
     volumes:
       - mongo-0:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
   mongo-1:
     image: mongo:7.0.16
@@ -31,15 +24,8 @@ services:
     restart: unless-stopped
     command: mongod --port 27031 --replSet rs0
     network_mode: host
-    healthcheck:
-      test: echo "try { rs.status() } catch (err)" | mongosh --port 27031 -u mongo-1 -p mongo-1
-      interval: 5s
-      timeout: 15s
-      start_period: 15s
-      retries: 10
     volumes:
       - mongo-1:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
   mongo-2:
     image: mongo:7.0.16
@@ -47,15 +33,8 @@ services:
     restart: unless-stopped
     command: mongod --port 27032 --replSet rs0
     network_mode: host
-    healthcheck:
-      test: echo "try { rs.status() } catch (err)" | mongosh --port 27032 -u mongo-2 -p mongo-2
-      interval: 5s
-      timeout: 15s
-      start_period: 15s
-      retries: 10
     volumes:
       - mongo-2:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
 volumes:
   mongo-0: {}
