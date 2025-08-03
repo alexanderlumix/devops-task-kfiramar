@@ -1,6 +1,6 @@
 import pymongo
 
-MONGO_HOST = '127.0.0.1'
+MONGO_HOST = 'mongo-0'  # Use service name when running in Docker
 MONGO_PORT = 27030
 ADMIN_USER = 'root'
 ADMIN_PASS = 'root'

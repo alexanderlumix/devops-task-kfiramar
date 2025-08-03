@@ -22,7 +22,7 @@ def get_state_name(state):
 def check_replicaset_status():
     try:
         # Connect to MongoDB using the primary node port with authentication
-        connection_string = 'mongodb://mongo-0:mongo-0@127.0.0.1:27034/?replicaSet=rs0&authSource=admin'
+        connection_string = 'mongodb://root:root@127.0.0.1:27030/?replicaSet=rs0&authSource=admin'
         client = MongoClient(connection_string)
         
         # Get replica set status
