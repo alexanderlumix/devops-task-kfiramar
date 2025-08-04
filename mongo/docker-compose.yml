@@ -15,7 +15,7 @@ services:
       - mongo-2
 
   mongo-0:
-    image: mongo:7.0.16
+    build: .
     container_name: mongo-0
     restart: unless-stopped
     ports:
@@ -32,10 +32,9 @@ services:
       retries: 10
     volumes:
       - mongo-0:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
   mongo-1:
-    image: mongo:7.0.16
+    build: .
     container_name: mongo-1
     restart: unless-stopped
     ports:
@@ -52,10 +51,9 @@ services:
       retries: 10
     volumes:
       - mongo-1:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
   mongo-2:
-    image: mongo:7.0.16
+    build: .
     container_name: mongo-2
     restart: unless-stopped
     ports:
@@ -72,7 +70,6 @@ services:
       retries: 10
     volumes:
       - mongo-2:/data/db
-      - ./mongo-keyfile:/etc/mongo-keyfile:ro
 
   app-go:
     build: ../app-go
